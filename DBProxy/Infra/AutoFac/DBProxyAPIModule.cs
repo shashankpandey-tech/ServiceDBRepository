@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Data;
 using DBProxy.Enumrations;
 using Microsoft.Extensions.Configuration;
+using DBProxy.DBInfraRepository;
+using DBProxy.DomainModel;
 
 namespace DBProxy.Infra.AutoFac
 {
@@ -24,6 +26,7 @@ namespace DBProxy.Infra.AutoFac
 
             containerBuilder.RegisterGeneric(typeof(Logger<>)).As(typeof(Logger<>));
             containerBuilder.RegisterType<MemoryCache>().As<MemoryCache>();
+            containerBuilder.RegisterType<Repository<History>>().As<IRepository<History>>();
 
             containerBuilder.Register(c =>
             {
