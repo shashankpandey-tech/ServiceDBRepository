@@ -46,7 +46,9 @@ namespace DBProxy
                 option.AddPolicy("CORS", policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             });
 
+            ////START New way to register Module using Autofac (.Net core 3.1)
             services.AddOptions();
+            ////END New way to register Module using Autofac (.Net core 3.1)
 
             //START Older way to register Module using Autofac (.Net core 2.2)
 
